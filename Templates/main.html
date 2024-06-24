@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+
+        <div class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="80px"></div>
+
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <div class="dropdown">
+                <a href="#Service" class="dropbtn">Service</a>
+                <div class="dropdown-content">
+                    <a href="/diabetes">DIABETES</a>
+                    <a href="/heart">HEART</a>
+                    <a href="/kidney">KIDNEY</a>
+                </div>
+            </div>
+            <a href="#Home">Contact</a>
+        </nav>
+
+    </header>
+    <div class="content">
+        <div class="profile_head">
+            <h2>Welcome {{ first_name }}</h2>
+            <h3>Serial Key: {{ serial_key }}</h3>
+            <p>Thank you for registering. Here are your details:</p>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile_details">
+                <div class="profile_details_card">
+                    <span>Name: </span>
+                    <span>{{ first_name }} {{ last_name }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Address:</span>
+                    <span> {{ address }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Telephone:</span>
+                    <span>{{ telephone }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Email:</span>
+                    <span>{{ email }}</span>
+                </div>
+            </div>
+
+            <div class="profile_details">
+                <div class="profile_details_card">
+                    <span>Age:</span>
+                    <span>{{ age }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Gender:</span>
+                    <span>{{ gender }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Blood Group:</span>
+                    <span>{{ blood_group }}</span>
+                </div>
+                <div class="profile_details_card">
+                    <span>Married:</span>
+                    <span>{{ married }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- our services -->
+
+        <div class="our-service">
+            <div class="service-heading">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="main-services">
+                <!-- Diabetes Service -->
+                <a href="/diabetes">
+                    <div class="inner-services">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-syringe"></i>
+                        </div>
+                        <h3>Diabetes Prediction</h3>
+                        <p>We offer extensive diagnostic procedures to help you predict and manage diabetes effectively. Our team is proud of our achievements and dedicated staff.</p>
+                        <div class="home-btn">
+                            <a class="homebtnsec" href="/diabetes"></a>
+                        </div>
+                    </div>
+                </a>
+            
+                <!-- Heart Service -->
+                <a href="/heart">
+                    <div class="inner-services">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-heartbeat"></i>
+                        </div>
+                        <h3>Heart Health</h3>
+                        <p>Our comprehensive heart health checkups aim to detect and prevent cardiovascular diseases. We are proud of our state-of-the-art facilities and expert staff.</p>
+                        <div class="home-btn">
+                            <a class="homebtnsec" href="/heart"></a>
+                        </div>
+                    </div>
+                </a>
+            
+                <!-- Kidney Service -->
+                <a href="/kidney">
+                    <div class="inner-services">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-procedures"></i>
+                        </div>
+                        <h3>Kidney Health</h3>
+                        <p>Our kidney health services offer early detection and management of kidney-related conditions. We are dedicated to providing top-notch care through our skilled staff.</p>
+                        <div class="home-btn">
+                            <a class="homebtnsec" href="/kidney"></a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+        <!-- our services ended -->
+
+    </div>
+
+</body>
+
+</html>

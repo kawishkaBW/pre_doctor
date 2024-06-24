@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --maincolor: #2ec8a6;
+    --secondcolor: #f8a803;
+    --thirdcolor: #f4ab01;
+    --textcolor: #4A5764;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 7%;
+    width: 100%;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    background-color: white !important;
+    height: 80px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.navbar a {
+    color: var(--textcolor);
+    font-size: 1.7rem;
+    margin: 1rem;
+    position: relative;
+    transition: 0.5s;
+}
+
+.navbar a:hover {
+    color: var(--maincolor);
+}
+
+.navbar a::after {
+    content: "";
+    background-color: var(--maincolor);
+    width: 0;
+    position: absolute;
+    height: 0.2rem;
+    left: 0;
+    margin-top: 0.5rem;
+    top: 100%;
+    transition: 0.5s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--textcolor);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--maincolor);
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#menu-bars {
+    color: var(--textcolor);
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: none;
+}
+
+#menu-bars:hover {
+    color: var(--maincolor);
+}
+
+.right-icons .btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.7rem;
+    background: var(--maincolor);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.right-icons .btn:hover {
+    background-color: var(--secondcolor);
+}
+
+/* header section ended */
+
+.content {
+    padding-top: 20px;
+    margin-top: 80px;
+    background: url('../images/backgroung-pattern-3.png') repeat center center fixed;
+    background-color: #d9f8ef;
+}
+
+.profile_head{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 10%;
+    border-style: ridge;
+    margin: 20px 10%;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: url('../images/backgroung-pattern-3.png') repeat center center fixed;
+}
+
+
+.profile_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.profile_details_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-style: outset;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.profile_details_card>span {
+    margin: 10px 20px;
+}
+
+.our-service {
+    width: 100%;
+    padding: 3rem 7%;
+}
+
+.service-heading h2 {
+    font-size: 40px;
+    color: #2ec8a6;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+}
+
+.main-services {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    text-align: center;
+}
+
+.inner-services{
+    flex: 1 1 300px;
+    padding: 3rem 2rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 2px solid var(--textcolor);
+}
+
+.inner-services > h3,p{
+    color: #2ec8a6;
+}
+
+.inner-services:hover {
+    transform: translateY(-10px);
+    border-bottom: 2px solid var(--maincolor);
+    background-color: #f5f5f5;
+}
+
+.inner-services:hover .service-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    background-color: var(--maincolor);
+}
+
+.inner-services:hover .service-icon i {
+    color: white;
+    transform: scale(1.1);
+}
+
+.service-icon {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid var(--maincolor);
+    background-color: #f5f5f5;
+}
+
+.service-icon i {
+    font-size: 3rem;
+    color: var(--maincolor);
+    padding: 1rem;
+}
+
+.inner-services h3 {
+    font-size: 2rem;
+    padding-top: 2rem;
+}
+
+.inner-services p {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    line-height: 2.5rem;
+}

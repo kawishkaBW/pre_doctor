@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital management website</title>
+
+    <script src="https://kit.fontawesome.com/c1df782baf.js"></script>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css">
+    <link rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <style>
+        /* Footer section  */
+
+    .footer_section {
+        background-color: darkseagreen;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        padding: 0 20px;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .footer_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        gap: 10px;
+    }
+    
+    .footer_menu {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .footer_menu a {
+        margin: 0 10px;
+        cursor: pointer;
+        color: black;
+    }
+
+    .footer_menu a:hover{
+        animation: backwards;
+        color: aqua;
+    }
+    
+    .contact_logos {
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact_logos a {
+        color: black;
+        margin: 0 10px;
+        font-size: 20px;
+    }
+    
+
+    /* Footer section end*/
+    </style>
+    
+    <script>
+        function toggleReadMore() {
+            var moreText = document.getElementsByClassName("more-content")[0];
+            var btnText = document.querySelector(".aboutbtn");
+
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+                btnText.textContent = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                btnText.textContent = "Read More";
+            }
+        }
+    </script>
+
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<script>
+    function showAlert(event) {
+        event.preventDefault();
+        if (confirm('Register please')) {
+            window.location.href = event.currentTarget.href;
+        } else {
+            window.location.href = "/";
+        }
+    }
+</script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="80px"></div>
+
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <div class="dropdown">
+                <a href="#Service" class="dropbtn">Service</a>
+                <div class="dropdown-content">
+                    <a href="/register" onclick="showAlert(event)">DIABETES</a>
+                    <a href="/register" onclick="showAlert(event)">HEART</a>
+                    <a href="/register" onclick="showAlert(event)">KIDNEY</a>
+                </div>
+            </div>
+            <a href="#Home">Contact</a>
+        </nav>
+
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div class="btn">Register</div>
+        </div>
+
+    </header>
+
+    <!-- header section ended -->
+
+    <!-- Home section started -->
+
+    <div class="main-home">
+
+        <div class="home">
+            <div class="home-left-content">
+                <span style="color: black;">welcome to <span style="color: aqua; font-size: 30px;">PRE -
+                        DOCTOR</span></span>
+                <h2>We take care our<br> Patients Healths</h2>
+                <p class="lorem">We ensure our patients' health by assessing their condition before they meet with their
+                    doctor,
+                    comparing their lab test reports to provide accurate diagnoses and personalized care plans. </p>
+
+                <div class="home-btn">
+                    <a href="/register">Register</a>
+                </div>
+
+            </div>
+
+            <div class="home-right-content">
+                <img src="images/hero2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="technology">
+        <div class="main-technology">
+
+            <div class="inner-technology">
+                <span></span>
+                <i class="fa-solid fa-syringe"></i>
+                <h2>Diabetes Prediction</h2>
+                <p>We provide diagnostic procedures to predict and manage diabetes, supported by our dedicated team.</p>
+            </div>
+
+            <div class="inner-technology">
+                <span></span>
+                <i class="fa-solid fa-heartbeat"></i>
+                <h2>Heart Health</h2>
+                <p>We offer heart checkups to detect and prevent cardiovascular diseases, supported by our expert staff
+                    and modern facilities.</p>
+            </div>
+
+            <div class="inner-technology">
+                <span></span>
+                <i class="fa-solid fa-procedures"></i>
+                <h2>Kidney Health</h2>
+                <p>We offer kidney health services for early detection and management of conditions, provided by our
+                    skilled staff.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- home section ends -->
+
+    <!-- About us section started -->
+
+    <div class="main-about">
+        <div class="about-heading">About Us</div>
+
+        <div class="inner-main-about">
+            <div class="about-inner-content-left">
+                <img src="static/images/about.png" alt="about">
+            </div>
+
+            <div class="about-inner-content">
+                <div class="about-right-content">
+                    <h2>We're Setting Standards in Research <br> and Clinical Care.</h2>
+                    <p class="aboutsec-content">
+                        Welcome to Pre-Doctor! We are dedicated to providing exceptional healthcare services to our
+                        community. Our mission is to offer comprehensive medical care through advanced diagnostic
+                        procedures and personalized treatment plans. With a team of skilled professionals and
+                        state-of-the-art facilities, we strive to enhance the well-being of every patient.
+                    </p>
+                    <p class="aboutsec-content more-content" style="display: none;">
+                        We set new standards in research and clinical care at Pre-Doctor. Dedicated to enhancing
+                        healthcare excellence, we prioritize your well-being by conducting thorough health assessments
+                        before your doctor visits, comparing your lab test reports for accurate diagnoses and
+                        personalized treatment plans.
+                        <br><br>
+                        Our mission is to deliver exceptional healthcare services through advanced diagnostic procedures
+                        and compassionate care. With a team of skilled professionals and state-of-the-art facilities, we
+                        strive to exceed expectations and ensure optimal patient outcomes.
+                        <br><br>
+                        At Pre-Doctor, innovation drives our commitment to excellence. Whether you're here for routine
+                        check-ups or specialized treatments, our integrated approach combines cutting-edge technology
+                        with personalized attention. We create a supportive environment where your comfort and
+                        satisfaction are our priorities.
+                        <br><br>
+                        Beyond medical care, we empower you with knowledge to make informed health decisions. Education
+                        and empowerment are at the core of our mission, ensuring you have the tools to lead a healthier
+                        life. Pre-Doctor is not just your healthcare provider; we're your trusted partner on your
+                        wellness journey.
+                    </p>
+                    <button class="aboutbtn" onclick="toggleReadMore()">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About us section ends -->
+
+
+    <!-- footer -->
+    <div class="footer_section">
+        <div class="footer_container">
+            <div class="footer_menu">
+                <a href="/">Home</a>
+                <a>Service</a>
+                <a>Contact</a>
+                <a href="/register">Register</a>
+            </div>
+            <div class="contact_logos">
+                <a href="https://github.com/kawishkaBW"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kavishka-buddhi-260606203/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=0779885779"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:+94779885779"><i class="fas fa-phone"></i></a>
+                <a href="kavishkabwimalarathna@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div style="font-size: 15px;">ALL RIGHT RECIVED @ KAWISHKA_WIMALARATHNA</div>
+        </div>
+    </div>
+
+    <!-- footer ended -->
+
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+
+</html>

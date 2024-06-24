@@ -1,0 +1,2 @@
+main color - #2ec8a6
+second main color - #f8a803 , #f4ab01
