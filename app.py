@@ -30,15 +30,13 @@ class Registration(db.Model):
 with app.app_context():
     db.create_all()
 
-# Load diabetes model
+# Load diabetes and heart prediction models
 with open('model/diabetes.pickle', 'rb') as fileDiabetes:
     modelDiabetes = pickle.load(fileDiabetes)
 
-# Load heart disease model
 with open('model/hearts.pickle', 'rb') as fileHeart:
     modelHeart = pickle.load(fileHeart)
 
-# Load kidney disease model
 with open('model/kidney.pickle', 'rb') as fileKidney:
     modelKidney = pickle.load(fileKidney)
 
@@ -58,9 +56,13 @@ def diabetes_prediction(feature_list):
 # Function to predict heart disease using the loaded model
 def heart_prediction(feature_list):
     try:
+        filename = 'model/hearts.pickle'
+        with open(filename, 'rb') as fileHeart:
+            modelHeart = pickle.load(fileHeart)
+        
         feature_array = np.array(feature_list).reshape(1, -1)
         pred_value = modelHeart.predict(feature_array)
-
+        
         if pred_value[0] == 0:
             return "You Are SAFE"
         elif pred_value[0] == 1:
@@ -73,11 +75,15 @@ def heart_prediction(feature_list):
         return "Prediction Error"
 
 # Function to predict kidney disease using the loaded model
-def kidney_prediction(feature_list):
+def heart_prediction(feature_list):
     try:
+        filename = 'model/kidney.pickle'
+        with open(filename, 'rb') as fileKidney:
+            modelKidney = pickle.load(fileKidney)
+        
         feature_array = np.array(feature_list).reshape(1, -1)
         pred_value = modelKidney.predict(feature_array)
-
+        
         if pred_value[0] == 0:
             return "You Are SAFE"
         elif pred_value[0] == 1:
@@ -86,9 +92,8 @@ def kidney_prediction(feature_list):
             return "Unknown"
 
     except Exception as e:
-        logging.error(f"Error in kidney disease prediction: {e}")
+        logging.error(f"Error in heart disease prediction: {e}")
         return "Prediction Error"
-
 # Route to home page
 @app.route('/')
 def home():
@@ -225,7 +230,10 @@ def heart():
             logging.error(f"Error in heart disease form submission: {e}")
             pred = 0
     
+    print(pred)
     return render_template('heart.html', pred=pred)
+
+
 # Route to kidney disease prediction form
 @app.route('/kidney', methods=['GET', 'POST'])
 def kidney():
@@ -258,19 +266,19 @@ def kidney():
             peda_edema = float(request.form['peda_edema'])
             aanemia = float(request.form['aanemia'])
 
-            feature_list = [age, blood_pressure, specific_gravity, albumin, sugar, red_blood_cells, pus_cell, pus_cell_clumps,
-                            bacteria, blood_glucose_random, blood_urea, serum_creatinine, sodium, potassium, haemoglobin,
-                            packed_cell_volume, white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,
-                            coronary_artery_disease, appetite, peda_edema, aanemia]
 
-            pred = kidney_prediction(feature_list)
+            feature_list = [age, blood_pressure, specific_gravity,albumin, sugar, red_blood_cells, pus_cell, pus_cell_clumps, bacteria, blood_glucose_random, blood_urea, serum_creatinine
+                        ,sodium,potassium, haemoglobin, packed_cell_volume, white_blood_cell_count, red_blood_cell_count, hypertension, diabetes_mellitus,coronary_artery_disease ,appetite , peda_edema, aanemia]
+
+            pred = heart_prediction(feature_list)
 
         except Exception as e:
-            logging.error(f"Error in kidney disease form submission: {e}")
-            pred = "Prediction Error"
+            logging.error(f"Error in heart disease form submission: {e}")
+            pred = 0
     
+    print(pred)
     return render_template('kidney.html', pred=pred)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
-
